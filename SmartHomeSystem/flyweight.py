@@ -15,6 +15,7 @@ class Painting:
     artist: str
     style: str
     medium: str
+    content: np.array = None
 
     def __post_init__(self):
         s = f"Title: {self.title}, Artist: {self.artist}, Style: {self.style}, Medium: {self.medium}"

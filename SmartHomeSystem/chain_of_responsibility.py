@@ -1,4 +1,4 @@
-# ChainOfResponsibility.py
+from __future__ import annotations
 import logging
 
 from SmartHomeSystem import Room, LivingRoomBuilder, RoomBuilder, SmartDeviceFactory
@@ -25,16 +25,16 @@ class RequestableLivingRoomBuilder(RequestableRoom, LivingRoomBuilder, RoomBuild
 
     def create_new_room(self):
         room_name = f"Living Room {id(self)}"
-        self.room = RequestableRoom(room_name)
+        self.room: RequestableRoom = RequestableRoom(room_name)
 
 
 class Request:
-    def __init__(self, message):
+    def __init__(self, message: str):
         self.message = message
 
 
 class Handler:
-    def __init__(self, successor=None):
+    def __init__(self, successor: Handler = None):
         self.successor = successor
 
     def handle_request(self, request):

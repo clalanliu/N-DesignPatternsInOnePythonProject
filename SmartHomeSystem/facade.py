@@ -1,7 +1,7 @@
 import logging
 from abc import ABC, abstractmethod
 
-from SmartHomeSystem import SmartLight, SmartThermostat
+from SmartHomeSystem import SmartLight, SmartThermostat, SmartDevice
 
 logger = logging.getLogger(__name__)
 
@@ -10,7 +10,7 @@ class SmartHomeFacade:
     def __init__(self):
         self.devices = []
 
-    def add_device(self, device):
+    def add_device(self, device: SmartDevice):
         self.devices.append(device)
 
     def turn_all_lights_on_and_off(self):

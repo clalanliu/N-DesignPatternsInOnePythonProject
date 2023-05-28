@@ -9,10 +9,10 @@ class SmartDeviceGroup(SmartDevice):
     def __init__(self):
         self.devices = []
 
-    def add_device(self, device):
+    def add_device(self, device: SmartDevice):
         self.devices.append(device)
 
-    def remove_device(self, device):
+    def remove_device(self, device: SmartDevice):
         self.devices.remove(device)
 
     def operate(self):

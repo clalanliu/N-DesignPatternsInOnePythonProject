@@ -1,4 +1,5 @@
 from abc import ABC
+from typing import Optional
 
 
 class Memento(ABC):
@@ -7,7 +8,9 @@ class Memento(ABC):
 
 
 class RoomState(Memento):
-    def __init__(self, walls: str, doors: str, windows: str):
+    def __init__(
+        self, walls: Optional[str], doors: Optional[str], windows: Optional[str]
+    ):
         self.walls = walls
         self.doors = doors
         self.windows = windows

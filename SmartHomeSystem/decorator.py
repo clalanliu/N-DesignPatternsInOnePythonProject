@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 class SmartDeviceDecorator(SmartDevice):
-    def __init__(self, device):
+    def __init__(self, device: SmartDevice):
         self.device = device
 
     def operate(self):

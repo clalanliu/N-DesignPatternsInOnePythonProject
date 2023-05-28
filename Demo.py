@@ -193,7 +193,7 @@ if __name__ == "__main__":
     for device in iterator:
         print(f"Device in first room: {device}")
 
-    # using momento to record room states
+    # using memento to record room states
     first_room.set_state("Beige", "Wooden", "Large")
     logger.info(
         f"Initial state of {first_room.name}: {first_room.walls}, {first_room.doors}, {first_room.windows}"

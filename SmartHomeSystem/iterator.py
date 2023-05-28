@@ -1,10 +1,13 @@
 import logging
+from typing import List
+
+from SmartHomeSystem import SmartDevice
 
 logger = logging.getLogger(__name__)
 
 
 class DeviceIterator:
-    def __init__(self, devices):
+    def __init__(self, devices: List[SmartDevice]):
         self.devices = devices
         self.index = 0
 

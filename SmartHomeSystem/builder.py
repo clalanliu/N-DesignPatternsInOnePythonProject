@@ -1,10 +1,16 @@
 import logging
 from abc import ABC, abstractmethod
+from typing import List, Optional
 
-from SmartHomeSystem import SmartDeviceFactory
-from SmartHomeSystem import PaintingFactory
-from SmartHomeSystem import DeviceIterator
-from SmartHomeSystem import RoomState
+from SmartHomeSystem import (
+    SmartDeviceFactory,
+    PaintingFactory,
+    DeviceIterator,
+    RoomState,
+    SmartDevice,
+    Painting,
+    DeviceVisitor,
+)
 
 logger = logging.getLogger(__name__)
 painting_factory = PaintingFactory()
@@ -12,22 +18,21 @@ painting_factory = PaintingFactory()
 
 class Room:
     def __init__(self, name):
-        self.name = name
-        self.walls = None
-        self.doors = None
-        self.windows = None
-        self.devices = []
-        self.paintings = []
-        self._mementos = []
+        self.name: str = name
+        self.walls: Optional[str] = None
+        self.doors: Optional[str] = None
+        self.windows: Optional[str] = None
+        self.devices: List[SmartDevice] = []
+        self.paintings: List[Painting] = []
 
-    def add_device(self, device):
+    def add_device(self, device: SmartDevice):
         self.devices.append(device)
 
     def operate_devices(self):
         for device in self.devices:
             device.operate()
 
-    def add_painting(self, painting):
+    def add_painting(self, painting: Painting):
         self.paintings.append(painting)
 
     def display_paintings(self):
@@ -37,7 +42,9 @@ class Room:
     def create_iterator(self):
         return DeviceIterator(self.devices)
 
-    def set_state(self, walls, doors, windows):
+    def set_state(
+        self, walls: Optional[str], doors: Optional[str], windows: Optional[str]
+    ):
         self.walls = walls
         self.doors = doors
         self.windows = windows
@@ -45,12 +52,12 @@ class Room:
     def create_state_memento(self):
         return RoomState(self.walls, self.doors, self.windows)
 
-    def restore_state(self, state):
+    def restore_state(self, state: RoomState):
         self.walls = state.walls
         self.doors = state.doors
         self.windows = state.windows
 
-    def accept_visitor(self, visitor):
+    def accept_visitor(self, visitor: DeviceVisitor):
         for device in self.devices:
             device.accept(visitor)
 
@@ -73,8 +80,8 @@ class RoomDirector:
 # Update RoomBuilder
 class RoomBuilder(ABC):
     def __init__(self, factory: SmartDeviceFactory):
-        self.factory = factory
-        self.room = None
+        self.factory: SmartDeviceFactory = factory
+        self.room: Optional[Room] = None
 
     def create_new_room(self, room_type: str):
         room_name = f"{room_type} {id(self)}"

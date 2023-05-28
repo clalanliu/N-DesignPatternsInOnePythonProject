@@ -2,7 +2,7 @@ import logging
 from abc import ABC, abstractmethod
 
 from SmartHomeSystem import RoomBuilder, RoomDirector
-from SmartHomeSystem import AlertSystem
+from SmartHomeSystem import AlertSystem, SmartLock
 
 logger = logging.getLogger(__name__)
 
@@ -22,9 +22,9 @@ class SmartHome(metaclass=Singleton):
     def __init__(self):
         if not hasattr(self, "initiated"):
             self.rooms = {}
-            self.alert_system = AlertSystem()
+            self.alert_system: AlertSystem = AlertSystem()
             self.initiated = True
-            self.home_lock = None
+            self.home_lock: SmartLock = None
             logger.info("Initialized the smart home.")
 
     def add_room(self, builder: RoomBuilder):

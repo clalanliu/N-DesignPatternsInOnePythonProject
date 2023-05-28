@@ -4,12 +4,13 @@ from SmartHomeSystem.composite import *
 from SmartHomeSystem.decorator import *
 from SmartHomeSystem.strategy import *
 from SmartHomeSystem.abstract_factory import *
-from SmartHomeSystem.factory import *
 from SmartHomeSystem.flyweight import *
 from SmartHomeSystem.iterator import *
 from SmartHomeSystem.memento import *
+from SmartHomeSystem.visitor import *
 from SmartHomeSystem.builder import *
 from SmartHomeSystem.observer import *
+from SmartHomeSystem.state import *
 from SmartHomeSystem.singleton import *
 from SmartHomeSystem.adapter import *
 from SmartHomeSystem.facade import *
@@ -17,5 +18,3 @@ from SmartHomeSystem.proxy import *
 from SmartHomeSystem.chain_of_responsibility import *
 from SmartHomeSystem.command import *
 from SmartHomeSystem.interpreter import *
-from SmartHomeSystem.state import *
-from SmartHomeSystem.visitor import *

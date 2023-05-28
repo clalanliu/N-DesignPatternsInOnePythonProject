@@ -1,7 +1,7 @@
 # N-Design Patterns In One Python Project
 
 ## Overview
-This project, SmartHomeSystem, provides an example of implementing 21 different design patterns in Python. The aim is to showcase these patterns in a coherent system, providing a practical reference for Python developers interested in design patterns.
+This project, SmartHomeSystem, provides an example of implementing 20 different design patterns in Python. The aim is to showcase these patterns in a coherent system, providing a practical reference for Python developers interested in design patterns.
 ![](classes.png)
 
 ## Design Patterns
@@ -11,7 +11,6 @@ The design patterns are grouped into three categories: Creational, Structural, a
 ### Creational Patterns
 * **Abstract Factory**: Used to create families of related objects, demonstrated with a set of "Smart Devices".
 * **Builder**: Shows how to configure complex objects step by step with a RoomBuilder.
-* **Factory Method**: Implemented an interface for creating objects, with subclasses deciding which class to instantiate.
 * **Prototype**: Demonstrates how to clone a pre-configured device instead of creating a new one from scratch.
 * **Singleton**: Used to manage all operations in the system with a single "Home" object.
 
@@ -40,6 +39,7 @@ The following two patterns are not used currently. If you have good ideas about 
 
 * **Template Method**
 * **Mediator**
+* **Factory** (Covered by **Abstract Factory**)
 
 ## Contribution
 Contributions are welcome! Please feel free to submit a pull request or open an issue.

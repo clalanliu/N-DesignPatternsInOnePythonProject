@@ -27,7 +27,7 @@ class WiFi(CommunicationTechnology):
 # Base SmartDevice class
 # Update SmartDevice and its children
 class SmartDevice(ABC, SmartDevicePrototype):
-    def __init__(self, communication):
+    def __init__(self, communication: CommunicationTechnology):
         self.observers = []
         self.communication = communication
 

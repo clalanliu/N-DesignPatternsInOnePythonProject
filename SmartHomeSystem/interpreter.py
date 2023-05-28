@@ -1,6 +1,8 @@
 import logging
 from dataclasses import dataclass
 
+from SmartHomeSystem import SmartThermostat, SmartLight
+
 logger = logging.getLogger(__name__)
 
 
@@ -32,7 +34,7 @@ class LightOffExpression(Expression):
 
 
 class ThermostatSetExpression(Expression):
-    def __init__(self, thermostat, temperature):
+    def __init__(self, thermostat: SmartThermostat, temperature: float):
         self.thermostat = thermostat
         self.temperature = temperature
 
