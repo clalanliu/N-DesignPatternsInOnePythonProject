@@ -7,7 +7,7 @@ from SmartHomeSystem.abstract_factory import *
 from SmartHomeSystem.factory import *
 from SmartHomeSystem.flyweight import *
 from SmartHomeSystem.iterator import *
-from SmartHomeSystem.momento import *
+from SmartHomeSystem.memento import *
 from SmartHomeSystem.builder import *
 from SmartHomeSystem.observer import *
 from SmartHomeSystem.singleton import *
