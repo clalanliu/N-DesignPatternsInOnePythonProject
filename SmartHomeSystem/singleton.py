@@ -24,6 +24,7 @@ class SmartHome(metaclass=Singleton):
             self.rooms = {}
             self.alert_system = AlertSystem()
             self.initiated = True
+            self.home_lock = None
             logger.info("Initialized the smart home.")
 
     def add_room(self, builder: RoomBuilder):

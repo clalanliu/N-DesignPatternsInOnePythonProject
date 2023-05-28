@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 
 from SmartHomeSystem import SmartDeviceFactory
 from SmartHomeSystem import PaintingFactory
+from SmartHomeSystem import DeviceIterator
+from SmartHomeSystem import RoomState
 
 logger = logging.getLogger(__name__)
 painting_factory = PaintingFactory()
@@ -16,6 +18,7 @@ class Room:
         self.windows = None
         self.devices = []
         self.paintings = []
+        self._mementos = []
 
     def add_device(self, device):
         self.devices.append(device)
@@ -30,6 +33,26 @@ class Room:
     def display_paintings(self):
         for painting in self.paintings:
             painting.display()
+
+    def create_iterator(self):
+        return DeviceIterator(self.devices)
+
+    def set_state(self, walls, doors, windows):
+        self.walls = walls
+        self.doors = doors
+        self.windows = windows
+
+    def create_state_memento(self):
+        return RoomState(self.walls, self.doors, self.windows)
+
+    def restore_state(self, state):
+        self.walls = state.walls
+        self.doors = state.doors
+        self.windows = state.windows
+
+    def accept_visitor(self, visitor):
+        for device in self.devices:
+            device.accept(visitor)
 
 
 # Builder Pattern

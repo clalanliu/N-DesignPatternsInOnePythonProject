@@ -1,10 +1,58 @@
 import logging
 from abc import ABC, abstractmethod
 
-from SmartHomeSystem import SmartLight, SmartThermostat
-from SmartHomeSystem import Bluetooth, WiFi
+from SmartHomeSystem import (
+    Bluetooth,
+    WiFi,
+    SmartDevice,
+    CommunicationTechnology,
+)
 
 logger = logging.getLogger(__name__)
+
+
+class SmartLight(SmartDevice):
+    @abstractmethod
+    def turn_on(self):
+        pass
+
+    @abstractmethod
+    def turn_off(self):
+        pass
+
+    def operate(self):
+        super().operate()
+        self.turn_on()
+        self.turn_off()
+
+
+class SmartThermostat(SmartDevice):
+    @abstractmethod
+    def increase_temperature(self):
+        pass
+
+    @abstractmethod
+    def decrease_temperature(self):
+        pass
+
+    def __init__(self, communication: CommunicationTechnology):
+        super().__init__(communication)
+        self.control_strategy = None
+
+    def operate(self):
+        super().operate()
+        self.increase_temperature()
+        self.decrease_temperature()
+
+    def set_temperature_control_strategy(self, control_strategy):
+        self.control_strategy = control_strategy(
+            increase_func=self.increase_temperature,
+            decrease_func=self.decrease_temperature,
+        )
+
+    def control_temperature(self):
+        if self.control_strategy:
+            self.control_strategy.control_temperature()
 
 
 class LivingRoomSmartLight(SmartLight):
@@ -29,6 +77,9 @@ class LivingRoomSmartThermostat(SmartThermostat):
 
     def decrease_temperature(self):
         logger.info("Living Room's Smart Thermostat is decreasing temperature.")
+
+    def set_temperature(self, temp):
+        logger.info(f"Living Room's Smart Thermostat is set to {temp}")
 
 
 class KitchenRoomSmartThermostat(SmartThermostat):

@@ -44,18 +44,5 @@ class SmartDevice(ABC, SmartDevicePrototype):
         )  # Notify observers when device is operated
         self.communication.communicate()
 
-
-class SmartLight(SmartDevice):
-    # Same as previous
-    def operate(self):
-        super().operate()
-        self.turn_on()
-        self.turn_off()
-
-
-class SmartThermostat(SmartDevice):
-    # Same as previous
-    def operate(self):
-        super().operate()
-        self.increase_temperature()
-        self.decrease_temperature()
+    def accept(self, visitor):
+        visitor.visit(self)
