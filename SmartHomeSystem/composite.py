@@ -1,6 +1,4 @@
-# SmartDeviceComposite.py
 import logging
-from abc import ABC, abstractmethod
 
 from SmartHomeSystem import SmartDevice
 

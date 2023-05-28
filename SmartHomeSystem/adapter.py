@@ -29,7 +29,7 @@ class ThirdPartySmartLight(ThirdPartySmartDevice):
 class SmartDeviceAdapter(SmartDevice):
     """This adapter wraps a third party device so it can be used in our system."""
 
-    def __init__(self, third_party_device):
+    def __init__(self, third_party_device: ThirdPartySmartDevice):
         super().__init__(communication=WiFi())
         self.third_party_device = third_party_device
 

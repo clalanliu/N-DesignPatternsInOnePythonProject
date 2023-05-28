@@ -6,6 +6,7 @@ from SmartHomeSystem import (
     WiFi,
     SmartDevice,
     CommunicationTechnology,
+    TemperatureControlStrategy,
 )
 
 logger = logging.getLogger(__name__)
@@ -37,14 +38,16 @@ class SmartThermostat(SmartDevice):
 
     def __init__(self, communication: CommunicationTechnology):
         super().__init__(communication)
-        self.control_strategy = None
+        self.control_strategy: TemperatureControlStrategy = None
 
     def operate(self):
         super().operate()
         self.increase_temperature()
         self.decrease_temperature()
 
-    def set_temperature_control_strategy(self, control_strategy):
+    def set_temperature_control_strategy(
+        self, control_strategy: TemperatureControlStrategy
+    ):
         self.control_strategy = control_strategy(
             increase_func=self.increase_temperature,
             decrease_func=self.decrease_temperature,

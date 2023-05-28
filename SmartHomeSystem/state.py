@@ -44,7 +44,7 @@ class UnlockedState(SmartLockState):
 
 
 class SmartLock(SmartDevice):
-    def __init__(self, correct_pin):
+    def __init__(self, correct_pin: str):
         self.correct_pin = correct_pin
         self.state = LockedState()
 
