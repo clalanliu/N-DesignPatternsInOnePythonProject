@@ -1,36 +1,45 @@
 # N-Design Patterns In One Python Project
-This python project, **SmartHomeSystem**, shows the usage of 21 design patterns:
 
--   Creational Patterns:
-    
-    -   **Abstract Factory:** Create families of related objects like a set of "Smart Devices" (e.g., Smart Light, Smart Lock, etc).
-    -   **Builder:** Configure complex objects step by step, like a RoomBuilder to create different types of rooms with different devices.
-    -   **Factory Method:** Define an interface for creating objects, but let subclasses decide which class to instantiate.
-    -   **Prototype:** Clone a pre-configured device, like a standard configured light, instead of creating a new one from scratch.
-    -   **Singleton:** Have a single "Home" object that coordinates and manages all operations in the system.
--   Structural Patterns:
-    
-    -   **Adapter:** Enable classes with incompatible interfaces to collaborate. A 'Smart Device' adapter that allows legacy devices to be controlled.
-    -   **Bridge:** Decouple an abstraction from its implementation so the two can vary independently.
-    -   **Composite:** Compose objects into tree structures to represent part-whole hierarchies.
-    -   **Decorator:** Add responsibilities to objects dynamically by wrapping them with a decorator class.
-    -   **Facade:** Simplify complex system interactions with a unified high-level interface.
-    -   **Flyweight:** Use sharing to support large numbers of fine-grained objects efficiently.
-    -   **Proxy:** Provide a surrogate or placeholder for another object to control access to it, like a proxy for the network communication.
--   Behavioral Patterns:
-    
-    -   **Chain of Responsibility:** Create a chain of receiver objects for a request, like a sequence of checks before an action (security checks, power-saving checks, etc.)
-    -   **Command:** Encapsulate a request as an object to allow parameterizing clients with queues, requests, and operations.
-    -   **Interpreter:** Implement a language interpreter for a small language like a 'Smart Device' programming language.
-    -   **Iterator:** Access the elements of an aggregate object sequentially without exposing its underlying representation.
-    -   **Memento:** Capture and externalize an object's internal state without violating encapsulation.
-    -   **Observer:** Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
-    -   **State:** Allow an object to alter its behavior when its internal state changes.
-    -   **Strategy:** Define a family of algorithms, encapsulate each one, and make them interchangeable. Like power management strategies for various devices.
-    
-    -   **Visitor:** Represent an operation to be performed on the elements of an object structure. Visitors can perform operations across a set of different classes. 
+## Overview
+This project, SmartHomeSystem, provides an example of implementing 21 different design patterns in Python. The aim is to showcase these patterns in a coherent system, providing a practical reference for Python developers interested in design patterns.
+![](classes.png)
 
+## Design Patterns
 
-The following two patterns are not used. Share some good idea with me!
--   **Template Method:** Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
--   **Mediator:** Define an object that encapsulates how a set of objects interact, like a `SmartHubMediator`.  
+The design patterns are grouped into three categories: Creational, Structural, and Behavioral.
+
+### Creational Patterns
+* **Abstract Factory**: Used to create families of related objects, demonstrated with a set of "Smart Devices".
+* **Builder**: Shows how to configure complex objects step by step with a RoomBuilder.
+* **Factory Method**: Implemented an interface for creating objects, with subclasses deciding which class to instantiate.
+* **Prototype**: Demonstrates how to clone a pre-configured device instead of creating a new one from scratch.
+* **Singleton**: Used to manage all operations in the system with a single "Home" object.
+
+### Structural Patterns
+* **Adapter**: Demonstrates how to enable classes with incompatible interfaces to collaborate.
+* **Bridge**: Shows how to decouple an abstraction from its implementation.
+* **Composite**: Used to compose objects into tree structures to represent part-whole hierarchies.
+* **Decorator**: Demonstrates how to add responsibilities to objects dynamically.
+* **Facade**: Simplifies complex system interactions with a unified high-level interface.
+* **Flyweight**: Shows how to use sharing to support large numbers of fine-grained objects efficiently.
+* **Proxy**: Provides a surrogate or placeholder for another object to control access to it.
+
+### Behavioral Patterns
+* **Chain of Responsibility**: Demonstrates creating a chain of receiver objects for a request.
+* **Command**: Shows how to encapsulate a request as an object.
+* **Interpreter**: Implemented a language interpreter for a 'Smart Device' programming language.
+* **Iterator**: Allows access to the elements of an aggregate object sequentially without exposing its underlying representation.
+* **Memento**: Demonstrates how to capture and externalize an object's internal state.
+* **Observer**: Shows how to define a one-to-many dependency between objects.
+* **State**: Allows an object to alter its behavior when its internal state changes.
+* **Strategy**: Demonstrates defining a family of algorithms, encapsulating each one, and making them interchangeable.
+* **Visitor**: Represents an operation to be performed on the elements of an object structure.
+
+## Not Yet Implemented
+The following two patterns are not used currently. If you have good ideas about how to implement these, please share!
+
+* **Template Method**
+* **Mediator**
+
+## Contribution
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
